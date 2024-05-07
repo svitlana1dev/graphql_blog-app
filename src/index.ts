@@ -15,11 +15,6 @@ export interface Context {
   } | null;
 }
 
-// interface MyApolloServerOptions
-//   extends ApolloServerOptionsWithTypeDefs<BaseContext> {
-//   context: Context;
-// }
-
 const server = new ApolloServer({
   typeDefs,
   resolvers: {
@@ -29,22 +24,7 @@ const server = new ApolloServer({
     Post,
     User,
   },
-  //   contex: async ({ req }: any): Promise<Context> => {
-  //     return {
-  //       prisma,
-  //     };
-  //   },
 });
-
-// app.use(
-//   // A named context function is required if you are not
-//   // using ApolloServer<BaseContext>
-//   expressMiddleware(server, {
-//     context: async ({ req, res }) => ({
-//       token: await getTokenForRequest(req),
-//     }),
-//   })
-// );
 
 startStandaloneServer(server, {
   context: async ({ req }: any): Promise<Context> => {
