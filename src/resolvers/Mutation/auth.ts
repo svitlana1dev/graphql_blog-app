@@ -2,7 +2,7 @@ import { Context } from "../../index";
 import validator from "validator";
 import bcrypt from "bcrypt";
 import JWT from "jsonwebtoken";
-import { JSON_SIGNATURE } from "../../keys";
+require("dotenv").config();
 
 interface SignupArgs {
   credentials: {
@@ -92,7 +92,7 @@ export const authResolvers = {
       {
         userId: user.id,
       },
-      JSON_SIGNATURE,
+      `${process.env.JSON_SIGNATURE}`,
       {
         expiresIn: 3600000,
       }
@@ -143,7 +143,7 @@ export const authResolvers = {
 
     return {
       userErrors: [],
-      token: JWT.sign({ userId: user.id }, JSON_SIGNATURE, {
+      token: JWT.sign({ userId: user.id }, `${process.env.JSON_SIGNATURE}`, {
         expiresIn: 3600000,
       }),
     };
