@@ -34,6 +34,7 @@ startStandaloneServer(server, {
       userInfo,
     };
   },
+  listen: { port: Number(process.env.PORT) || 4000 },
 })
   .then(({ url }) => console.log(url))
   .catch((err) => console.log(err.message));
