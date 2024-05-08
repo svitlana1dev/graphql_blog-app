@@ -4,7 +4,7 @@ import { PrismaClient, Prisma } from "@prisma/client";
 import { DefaultArgs } from "@prisma/client/runtime/library";
 import { typeDefs } from "./schema";
 import { Query, Mutation, Profile, Post, User } from "./resolvers";
-import { getUserFromTheToken } from "./utils/getUserFromToken";
+import { getUserFromTheToken } from "./utils/get-user-from-token";
 
 export const prisma = new PrismaClient();
 
