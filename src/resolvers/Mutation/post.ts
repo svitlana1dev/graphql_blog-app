@@ -1,6 +1,6 @@
 import { Post, Prisma } from "@prisma/client";
 import { Context } from "../../index";
-import { canUserMutatePost } from "../../utils/canUserMutatePost";
+import { canUserMutatePost } from "../../utils/can-user-mutate-post";
 
 interface PostArgs {
   post: {

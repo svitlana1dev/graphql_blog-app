@@ -1,5 +1,5 @@
 import { Context } from "../index";
-import { userLoader } from "../loaders/userLoader";
+import { userLoader } from "../loaders/user-loader";
 
 interface PostParentType {
   authorId: number;
